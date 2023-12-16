@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:11
 
 MAINTAINER andresgarcia.dev
 
@@ -6,13 +6,10 @@ COPY aem-sdk-*/aem-sdk-quickstart-*.jar /aem/author/aem-author-p4502.jar
 
 COPY aem-sdk-*/aem-sdk-quickstart-*.jar /aem/publish/aem-publish-p4503.jar
 
-WORKDIR /aem/author
-
-# RUN java -jar aem-author-p4502.jar -unpack
-
-RUN java -jar aem-author-p4502.jar
+COPY passwordfile.properties /aem/passwordfile.properties
 
 EXPOSE 4502
 
+WORKDIR /aem/author
 
-# ENTRYPOINT ["java","-jar","/Test.jar"]
+ENTRYPOINT ["java","-jar","aem-author-p4502.jar", "-nointeractive", "-Dadmin.password.file=../passwordfile.properties" ]
