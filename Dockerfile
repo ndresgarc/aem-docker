@@ -10,6 +10,8 @@ COPY passwordfile.properties /aem/passwordfile.properties
 
 EXPOSE 4502
 
+EXPOSE 4503
+
 WORKDIR /aem/author
 
 ENTRYPOINT ["java","-jar","aem-author-p4502.jar", "-nointeractive", "-Dadmin.password.file=../passwordfile.properties" ]
