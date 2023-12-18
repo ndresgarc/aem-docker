@@ -12,8 +12,9 @@ COPY init.sh /aem/init.sh
 
 RUN chmod +x /aem/init.sh
 
-EXPOSE 4502
-
-EXPOSE 4503
+# 4502 - Author
+# 4503 - Publish
+# 80 - Dispatcher
+EXPOSE 4502 4503 80
 
 ENTRYPOINT ["/bin/bash", "-c", "/aem/init.sh"]
