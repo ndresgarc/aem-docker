@@ -1,0 +1,17 @@
+version: '3'
+services:
+  aem:
+    image: aem-docker
+    container_name: aem-docker
+    restart: unless-stopped
+    ports:
+      - 4502:4502
+      - 4503:4503
+      - 80:80
+    working_dir: /aem
+    volumes:
+      - ./aem-volume:/aem
+    environment:
+      ENV_VAR: test
+volumes:
+  aem-volume:
