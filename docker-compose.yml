@@ -1,7 +1,7 @@
 version: '3'
 services:
   aem:
-    image: aem-docker
+    image: aem-docker:latest
     container_name: aem-docker
     restart: unless-stopped
     ports:
